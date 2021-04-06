@@ -7,11 +7,9 @@
 
 let hoursWork = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// let totalOneHour = [];
-// let totalAvg=[];
 
 
-let arr = [];  // add push in consterrct
+let LocationsArr = [];  
 
 function random(min, max) {
 
@@ -29,7 +27,8 @@ function Location(name, avg, min, max) {
     this.cookiesOneHour =[];
     this.custmerOneHour =[];
     this.totalCookies=0;
-    arr.push(this);
+    LocationsArr.push(this);
+
 
 }
 
@@ -48,10 +47,9 @@ Location.prototype.getRandonmForEatchHour = function () {
 
     }
 
-    console.log(this.custmerOneHour);
+    //console.log(this.custmerOneHour);
 
 }
-
 
 Location.prototype.getCookiesForEatchOne = function () {
 
@@ -70,46 +68,49 @@ Location.prototype.getCookiesForEatchOne = function () {
 
 }
 
-
-
-
 Location.prototype.render = function () {
 
 
-    let parent = document.getElementById('cookiesSales');
-    console.log(parent);
+    
+   
+    
+   
+           
+      
 
-    let nameElement = document.createElement('h3');
+     for(let j = 0 ; j<LocationsArr.length ; j++){
+             
+        let middelRows= document.createElement('tr');
+        table.appendChild(middelRows);
+           
+          
+        for(let i = 0 ; i<hoursWork.length  ; i++){
 
+               
+            
+            let tdElement =document.createElement('td');
+    
+            middelRows.appendChild(tdElement);
+    
+            tdElement.textContent=LocationsArr[j].cookiesOneHour[i];
 
-
-    parent.appendChild(nameElement);
-
-    nameElement.textContent = this.name;
-
-
-    let ulElement = document.createElement('ul');
-
-    parent.appendChild(ulElement);
-
-    for (let i = 0; i < hoursWork.length; i++) {
-
-
-        let liElement = document.createElement('li');
-
-        ulElement.appendChild(liElement);
-
-
-        liElement.textContent = `${hoursWork[i]}: ${this.cookiesOneHour[i]} cookies`
-    }
+      }
 
 
-    let totalLiElement = document.createElement('li');
 
-    ulElement.appendChild(totalLiElement);
+     }
+
+       
+    
+   
 
 
-    totalLiElement.textContent = `Total: ${this.totalCookies} cookies`
+    // let totalLiElement = document.createElement('li');
+
+    // ulElement.appendChild(totalLiElement);
+
+
+    // totalLiElement.textContent = `Total: ${this.totalCookies} cookies`
 
 
 
@@ -117,16 +118,92 @@ Location.prototype.render = function () {
 }
 
 
+let parent = document.getElementById('cookiesSales');
+    
+
+            let table = document.createElement('table');
+            parent.appendChild(table);
+
+
+            let headerTable= document.createElement('tr');
+            table.appendChild(headerTable);
+
+            let headings = [ '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+            
+            for(let i = 0 ; i<= headings.length  ; i++){
+
+
+                let thElement =document.createElement('th');
+
+                headerTable.appendChild(thElement);
+
+                thElement.textContent=headings[i];
+            }
+
+
+
+  
+ 
+
+
+    
+//     Location.prototype.render = function () {
+
+//    for(let i = 0 ; i < LocationsArr.length ; i++){
+
+//    let locationRaw=document.createElement('tr');
+
+//    table.appendChild(locationRaw);
+
+
+//    let locatonData = document.createElement("td");
+
+//    locationRaw.appendChild(locatonData);
+//    locatonData.textContent= LocationsArr[i].name; 
+
+
+
+
+  
+//    }
+
+// }
+
+//console.log(LocationsArr.cookiesOneHour);
+
+
+
+ let Seattle = new Location("Seattle", 20, 38, 2.3);
+ Seattle.getRandonmForEatchHour();
+ Seattle.getCookiesForEatchOne();
+ Seattle.render();
+
+ //console.log(paris.cookiesOneHour);
+
+
+  let Tokyo = new Location("Tokyo",3, 24, 1.2);
+  Tokyo.getRandonmForEatchHour();
+  Tokyo.getCookiesForEatchOne();
+  Tokyo.render();
+
+ 
+ let Dubai = new Location("Dubai", 11 , 38, 3.7);
+ Dubai.getRandonmForEatchHour();
+ Dubai.getCookiesForEatchOne();
+ Dubai.render();
+
+
+
 let paris = new Location("paris", 20, 38, 2.3);
-paris.getRandonmForEatchHour();
-paris.getCookiesForEatchOne();
-paris.render();
+ paris.getRandonmForEatchHour();
+ paris.getCookiesForEatchOne();
+ paris.render();
 
 
-
-
-
-
+ let Lima = new Location("Lima", 2 ,16, 4.6);
+ Lima.getRandonmForEatchHour();
+ Lima.getCookiesForEatchOne();
+ Lima.render();
 
 
 /*

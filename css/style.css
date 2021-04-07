@@ -1,4 +1,80 @@
 table , tr , th , td {
     border: 1px solid black;
     border-collapse: collapse;
+    background-color: tomato;
+    
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    font-family: sans-serif;
+    padding: 10px;
+    background-color:whitesmoke;
+
+
+}
+
+
+header{
+    padding: 30px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+
+nav{
+    background-color: gray;
+    margin-bottom: 20px;
+}
+
+nav ul{
+    position: relative;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 20px;
+}
+
+nav ul li a {
+    color: honeydew;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+table{
+    position: relative;
+}
+
+
+
+.about-us{
+    width: 100%;
+    padding: 20px;
+    border: 3px solid gray;
+    margin: 0;
+    font-weight: bold;
+    text-align: justify;
+}
+
+#hero{
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+#paragraph{
+    width: 100%;
+    padding: 20px;
+    border: 3px solid gray;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: justify;
 }

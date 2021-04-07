@@ -54,7 +54,7 @@ Shop.prototype.calCookiesForEachHour = function () {
 
     }
 
-    console.log(this.cookiesOneHour);
+    //console.log(this.cookiesOneHour);
 
 }
 
@@ -170,13 +170,73 @@ function creatFooter(){
 }
 
 
-
-createHeader();
-for(let i = 0 ; i<store.length ;i++){
-    store[i].calCookiesForEachHour();
-    store[i].render();
-}
-
-creatFooter();
+//get the values from sales form 
 
 
+
+
+ let shopForm=document.getElementById('shop-form');
+
+ console.log(shopForm);
+
+  shopForm.addEventListener('submit' , submission);
+
+
+  function submission(event){
+
+    event.preventDefault();
+
+    console.log(event) ;
+
+
+    let name=event.target.nameShop.value;
+    console.log(name);
+
+    let minimum=event.target.min.value;
+    console.log(minimum);
+
+
+    let maximum=event.target.max.value;
+    console.log(maximum);
+
+    
+    let average=event.target.avg.value;
+    console.log(average);
+
+    let addNewShop = new Shop(name , minimum , maximum , average);
+    console.log(addNewShop);
+
+    let btn = document.querySelector('.button');
+    btn.style.background ='red';
+    
+    document.querySelector('#shop-form').style.background='#112d4e';
+    //  addNewShop.calCookiesForEachHour();
+    
+     
+    //  addNewShop.render();
+     
+     table.textContent =" " ;
+    
+    createHeader();
+    for(let i = 0 ; i<store.length ;i++){
+        store[i].calCookiesForEachHour();
+        store[i].render();
+    }
+  
+   creatFooter();
+    
+            
+
+  }
+
+
+
+ createHeader();
+  for(let i = 0 ; i<store.length ;i++){
+      store[i].calCookiesForEachHour();
+      store[i].render();
+  }
+
+ creatFooter();
+
+ 
